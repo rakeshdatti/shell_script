@@ -6,7 +6,7 @@ then
     echo "ERror you have to be sudo user"
 fi
 
-dnf install mysql-server -y
+dnf install mysql-community-server -y
 if [$? -eq 0 ]
 then
     echo "mysql is installed sucessfully"
