@@ -7,11 +7,13 @@ then
     exit 1
 fi
 
-yum install -y mysql-server
+ech "Installing MySQL server"
+dnf install -y mysql-server
 if [$? -eq 0 ]
 then
     echo "mysql is installed sucessfully"
-    exit 1
+    exit 0
 else
     echo "mysql is not installed "
+    exit 1
 fi 
