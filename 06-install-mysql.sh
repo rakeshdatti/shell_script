@@ -1,5 +1,6 @@
 #!/bin/bash
-USERID= ($id -u)
+
+USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then 
     echo "ERror you have to be sudo user"
