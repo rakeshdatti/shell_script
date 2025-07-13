@@ -17,12 +17,14 @@ then
     echo "Error: You must be a sudo user"
     exit 1
 fi
-dnf list installed mysql 
-if [$? -ne 0 ]
+
+dnf list installed mysql
+if [ $? -ne 0 ]
 then 
     dnf install mysql -y
     Validate $? "Installing mysql..."
+    exit 0
 else
     echo "MySQL is already installed"
-    exit 0
+    exit 1
 fi
