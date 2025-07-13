@@ -4,7 +4,7 @@ USERID=$(id -u)
 
 # function
 Validate() {
-    if [ $1 -ne 0]
+    if [ $1 -ne 0 ]
     then 
         echo -e "\e[31 $2..failed"
         exit 1
