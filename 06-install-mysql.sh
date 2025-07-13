@@ -7,7 +7,7 @@ then
     exit 1
 fi
 
-yum install mysql-server -y
+yum install -y mysql-server
 if [$? -eq 0 ]
 then
     echo "mysql is installed sucessfully"
