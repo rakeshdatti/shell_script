@@ -7,13 +7,20 @@ then
     exit 1
 fi
 
-ech "Installing MySQL server"
-dnf install -y mysql-server
-if [$? -eq 0 ]
+dnf list installed mysql
+if [$? -ne 0 ]
 then
-    echo "mysql is installed sucessfully"
-    exit 0
+    echo "Installing MySQL server"
+    dnf install mysql-server -y
+    if [$? -eq 0 ]
+    then
+        echo "mysql is installed sucessfully"
+        exit 0
+    else
+        echo "mysql is not installed "
+        exit 1
+    fi 
 else
-    echo "mysql is not installed "
-    exit 1
-fi 
+    echo "mysql is already installed"
+    exit 0
+fi
