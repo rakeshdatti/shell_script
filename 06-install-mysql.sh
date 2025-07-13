@@ -6,7 +6,7 @@ then
     echo "ERror you have to be sudo user"
 fi
 
-dnf install mysqll -y
+dnf install mysql -y
 if [$? -eq 0 ]
 then
     echo "mysql is installed sucessfully"
