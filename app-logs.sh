@@ -35,7 +35,7 @@ FILE=$( find $SOURCE_DIR -name "*.log" -mtime +14 )
 if [ -n "$FILE" ]
 then 
     zip_file="$DEST_DIR/app-logs-$TIMESTAMP.zip"
-    find $SOUCRCE_DIR -name "*.log" -mtime +14 | zip -@ $zip_file 
+    find "$SOUCRCE_DIR" -name "*.log" -mtime +14 | zip -@ "$zip_file" 
     if [ -f "$zip_file" ]
     then 
         echo -e "$G Successfully created ZIp file $zip_file"
