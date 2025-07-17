@@ -2,14 +2,19 @@
 
 USERID=$(id -u)
 
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+
 # function
 Validate() {
     if [ $1 -ne 0 ]
     then 
-        echo -e "\e[31m$2..failed"
+        echo -e "$2..$R failed"
         exit 1
     else
-        echo -e "\e[32m$2..success"
+        echo -e "$2..$G success"
     fi
 }
 if [ $USERID -ne 0 ]
@@ -23,6 +28,6 @@ then
     dnf install mysql -y
     Validate $? "Installing mysql..."
 else
-    echo -e "\e[33mMySQL is already installed"
+    echo -e "MySQL is already $Y installed"
     exit 0
 fi
