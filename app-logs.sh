@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -24,7 +23,8 @@ if [ ! -d "$SOURCE_DIR" ]
 then 
     echo -e "$SOURCE_DIR does not exist"
     exit 1
-end 
+fi
+
 if [ ! -d "$DEST_DIR" ]
 then 
     echo -e "$DEST_DIR does not exist"
