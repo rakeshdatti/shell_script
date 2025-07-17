@@ -7,7 +7,7 @@ Y="\e[33m"
 
 SOURCE_DIR=$1
 DEST_DIR=$2
-
+TIMESTAMP=$( date +%Y-%m-%d-%H-%M-%S)
 
 USAGE() {
     echo -e "$R Usage: $N $0 sh <source_directory> <destination_directory>"
@@ -34,7 +34,7 @@ fi
 FILE=$( find $SOURCE_DIR -name "*.log" -mtime +14 )
 if [ -n "$FILE" ]
 then 
-    zip_file=$( $DEST_DIR/app-logs-$TIMESTAMP.zip )
+    zip_file="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     find $SOUCRCE_DIR -name "*.log" -mtime +14 | zip -@ $zip_file 
     if [ -f "$zip_file" ]
     then 
