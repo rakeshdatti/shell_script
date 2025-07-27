@@ -1,0 +1,16 @@
+i-0b22b7803edd4c050
+{
+    "Functions": []
+}
+{
+    "Users": [
+        {
+            "Path": "/",
+            "UserName": "rakesh",
+            "UserId": "AIDAVVNLIQKYM6ALJUA5N",
+            "Arn": "arn:aws:iam::389590581936:user/rakesh",
+            "CreateDate": "2025-06-12T11:43:35+00:00",
+            "PasswordLastUsed": "2025-07-27T09:18:04+00:00"
+        }
+    ]
+}

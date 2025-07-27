@@ -5,6 +5,12 @@ G="\e[32m"
 Y="\e[33m"
 
 
+LOGS_FOLDER="/var/log/expense-logs"
+LOG_FILE=$( echo $0 | awk -f "/" '{print $NF}'| cut -d "." -f1 )
+TIMESTAMP=$( date +%Y-%m-%d-%H-%M-%S )
+LOG_FILE_NAME="$LOGS_FLOLDER/$LOG_FILE-$TIMESTAMP.log"
+
+
 SOURCE_DIR=$1
 DEST_DIR=$2
 TIMESTAMP=$( date +%Y-%m-%d-%H-%M-%S)
@@ -35,13 +41,13 @@ FILE=$( find $SOURCE_DIR -name "*.log" -mtime +14 )
 if [ -n "$FILE" ]
 then 
     zip_file="$DEST_DIR/app-logs-$TIMESTAMP.zip"
-    find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ "$zip_file" 
+    find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ "$zip_file"   &>> $LOG_FILE_NAME
     if [ -f "$zip_file" ]
     then 
-        echo -e "$G Successfully created ZIp file $zip_file"
+        echo -e "$G Successfully created ZIp file $zip_file" &>> $LOG_FILE_NAME
         while read -r filepath
         do 
-            echo "Deleting the $filepath"
+            echo "Deleting the $filepath" &>> $LOG_FILE_NAME
             rm -rf $filepath 
         done <<< $FILE
     else
